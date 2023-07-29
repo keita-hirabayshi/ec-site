@@ -8,3 +8,10 @@
     laravel用のものがある「sail composer require barryvdh/laravel-debugbar」
     sail artisan serve起動時に使える
     configファイルの更新を行う際は、「sail artisan config:clear / cache:clear」にてフレッシュする
+
+Vite laravel-Breeze
+    フロントエンド・ビルド・ツール
+        現在は、vite (昔はwebpack = laravel mix)
+        「sail npm run dev」
+    認証機能
+        laravel breeze だと簡単に使用できる
