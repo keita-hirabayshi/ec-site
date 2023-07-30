@@ -15,3 +15,8 @@ Vite laravel-Breeze
         「sail npm run dev」
     認証機能
         laravel breeze だと簡単に使用できる
+レイアウト
+    tailwind モバイルファーストが主流
+    tailwind,vite等は「package.json」にあり
+component
+    resource / app/view のいずれかにある
