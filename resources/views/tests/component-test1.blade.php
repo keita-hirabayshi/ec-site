@@ -1,1 +1,3 @@
-<p>test1</p>
+<x-tests.app>
+    test1
+</x-tests.app>

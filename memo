@@ -19,4 +19,5 @@ Vite laravel-Breeze
     tailwind モバイルファーストが主流
     tailwind,vite等は「package.json」にあり
 component
-    resource / app/view のいずれかにある
+    resource / app/view のいずれかにある    
+    修正しやすい
