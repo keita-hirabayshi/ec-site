@@ -27,4 +27,4 @@ component
     ②header                   →  値は<x-  header="A"> </x->と記載
     ③属性{{$title}},{{name}}   →  値は<x-  title="A" name="B"> </x->と記載
     ④変数{{$message}}          →  <x- :message="{{$message}}">    :によって変数と解釈されるようになる
-    
+    ⑤初期値(props)
