@@ -20,4 +20,4 @@ Vite laravel-Breeze
     tailwind,vite等は「package.json」にあり
 component
     resource / app/view のいずれかにある    
-    修正しやすい
+    修正しやすい、htmlをパーツに分けられる「slot」
