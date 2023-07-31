@@ -24,7 +24,9 @@ component
 
     データの受け渡し
     ①slot                     →  単純に値を<x-> </x->内に記載
-    ②header                   →  値は<x-  header="A"> </x->と記載
+    ②header                   →  値は<x-slot name="header">書きたい内容 </x->と記載
     ③属性{{$title}},{{name}}   →  値は<x-  title="A" name="B"> </x->と記載
     ④変数{{$message}}          →  <x- :message="{{$message}}">    :によって変数と解釈されるようになる
     ⑤初期値(props)
+    ⑤css(attribute)           →  部分的に変更する
+
