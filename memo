@@ -1,0 +1,32 @@
+プロジェクトの作成
+    コマンドにて作成した際は、phpMyAdminは含まれていないので、ファイル作成後「docker.compose」にて追記
+    そののち、「sail up」にて起動する必要がある
+レポジトリの設定
+    ローカルレポジトリの作成「git init   git add -A . 」
+    リモートとの接続・push「git branch -M main , git remote add htttp 」
+デバッカーの追加
+    laravel用のものがある「sail composer require barryvdh/laravel-debugbar」
+    sail artisan serve起動時に使える
+    configファイルの更新を行う際は、「sail artisan config:clear / cache:clear」にてフレッシュする
+
+Vite laravel-Breeze
+    フロントエンド・ビルド・ツール
+        現在は、vite (昔はwebpack = l
+        「sail npm run dev」
+    認証機能
+        laravel breeze だと簡単に使用できる
+レイアウト
+    tailwind モバイルファーストが主流
+    tailwind,vite等は「package.json」にあり
+component
+    resource / app/view のいずれかにある    
+    修正しやすい、htmlをパーツに分けられる「slot」
+
+    データの受け渡し
+    ①slot                     →  単純に値を<x-> </x->内に記載
+    ②header                   →  値は<x-slot name="header">書きたい内容 </x->と記載
+    ③属性{{$title}},{{name}}   →  値は<x-  title="A" name="B"> </x->と記載
+    ④変数{{$message}}          →  <x- :message="{{$message}}">    :によって変数と解釈されるようになる
+    ⑤初期値(props)
+    ⑤css(attribute)           →  部分的に変更する
+
