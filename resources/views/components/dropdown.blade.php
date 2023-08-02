@@ -22,6 +22,7 @@ switch ($width) {
 @endphp
 
 <div class="relative" x-data="{ open: false }" @click.outside="open = false" @close.stop="open = false">
+    <!-- openの状態なら、closeにcloseならopenになるよう、動作する -->
     <div @click="open = ! open">
         {{ $trigger }}
     </div>

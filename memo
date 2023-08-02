@@ -30,3 +30,9 @@ component
     ⑤初期値(props)
     ⑤css(attribute)           →  部分的に変更する
 
+    Alpine js                        x- の表記が特徴。tailwindのjavascript版
+
+ライフサイクル
+    1. まず初めに、public/index.phpが読み込まれる。(autoload,bootstrapファイルの適用)
+
+    サービスコンテナ  サービスを入れる箱(bindメソッドで取り込み、makeメソッドで出力できる)
