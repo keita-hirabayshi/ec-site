@@ -47,10 +47,13 @@ require __DIR__.'/../vendor/autoload.php';
 // サービスコンテナの読み込み
 $app = require_once __DIR__.'/../bootstrap/app.php';
 
+// サービスコンテナ内のkanerlを出力
 $kernel = $app->make(Kernel::class);
 
+// リクエストインスタンス生成後、httpカーネルによりレスポンスを取得する
 $response = $kernel->handle(
     $request = Request::capture()
 )->send();
 
+// terminateで後付け
 $kernel->terminate($request, $response);
