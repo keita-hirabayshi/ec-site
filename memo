@@ -30,3 +30,13 @@ component
     ⑤初期値(props)
     ⑤css(attribute)           →  部分的に変更する
 
+    Alpine js                        x- の表記が特徴。tailwindのjavascript版
+
+ライフサイクル
+    1. まず初めに、public/index.phpが読み込まれる。(autoload,bootstrapファイルの適用)
+        bootstrapにてサービスコンテナを生成
+        サービスコンテナ  サービスを入れる箱(bindメソッドで取り込み、makeメソッドで出力できる)
+    2.次にコンテナ内のhttpカーネルをインスタンス化し、さらにリクエストインスタンスを生成
+    3.httpかネールを用いて、requestをもとにresponse(cookieなどの情報)を取得し、terminateでくっつける
+    *詳細はホムペ参照
+    *サービスプロバイダ内にて、サービスコンテナへ処理を登録する関数を登録しておけば、リクエスト時に自動でサービスコンテナへ登録されるようになる。
