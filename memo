@@ -60,11 +60,13 @@ component
 
 コントローラー・ビュー
     user,owner,adminをそれぞれ作成
-
+    middlewareはrouteだけでなく、controllerでもつけておく
 設計
     上流工程    企画・要件定義・設計（どういったアプリを作るか。各ページの表示や動きはどうするか。）
     下流工程    実装・テスト・リリース
     
 画像
     publicとstorageの2パターンあり。(storage側は初期の状態だと読み込み難 sail artisan storage:link)
+    役割が異なる    public → 画像の表示  storage → アップロード画像の保存先
     スタッシュで囲み{} asset関数で記載すれば、/public/imagesフォルダ内の画像を表示できる
+
