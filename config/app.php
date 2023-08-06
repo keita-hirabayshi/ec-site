@@ -15,7 +15,7 @@ return [
     | any other location as required by the application or its packages.
     |
     */
-
+// プロジェクトのタイトル名を設定。 APP_NAMEは .envファイルにあり
     'name' => env('APP_NAME', 'Laravel'),
 
     /*
