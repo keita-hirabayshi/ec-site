@@ -48,10 +48,7 @@ component
 ルート
     routeServiceProviderにて、URLに応じ読み込むユーザー区分を選択できるようにする
 
-    ガード  特定のユーザー区分を有するものしか、アクセスできなくする機能
     config/auth.php にて読み込まれる。  (guardとproviderの設定) 
     authファザードはguardインスタンスとセット
 
 ミドルウェア
-    非認証時のリダイレクト処理など(Authenticate.php)
-    Auth::guard()を使えば、guardに応じて処理を切り替える事が可能
