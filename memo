@@ -79,3 +79,7 @@ component
     eloquentのtimestampはcarbonインスタンス
 
 ＊データを指定のファイルに渡したい場合は、第二引数にてcompact()で記載すると良い
+
+tailblock
+    ユーザー登録やログイン画面などアプリケーションで必須の内容が記載。
+    (html,cssが記載されているので、コピペで流用可能)
