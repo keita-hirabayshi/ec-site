@@ -85,3 +85,6 @@ tailblock
     (html,cssが記載されているので、コピペで流用可能)
 
 フラッシュメッセージ
+    withメソッドにて
+
+別ページへの移行をする場合には、 onclick=""を使うもしくは、form画面があるならtypeをsubmit指定する
