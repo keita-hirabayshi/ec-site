@@ -15,5 +15,10 @@ middleware
 
 エラー処理
     カスタマイズしたいなら、vendor:publish  にて、vendor/publish内にファイル生成し、そこで編集する「tailwindのpaginationと同様」
+画像のアップロード
+    interventionImageでリサイズするなど可能
+フォームリクエスト
+    画像用のリクエストを作成
+
 注意点
     新規でcontroller作成する際は、routeにcotroller記載 → controller作成としないとだめ
