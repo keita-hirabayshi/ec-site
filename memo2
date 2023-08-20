@@ -6,3 +6,6 @@
     「sail artisan make:model Shop -m」
     外部キーがある場合には、migrationファイルで設定しておくことで、設定できる
     また、modelファイルでは、リレーションを設定する必要がある  →  これを使う事で、外部キーで紐づくデータを取得できる
+削除
+    FK制約がかかっている場合には、migrationファイルにて「on update delete」を記載する必要がある
+    
