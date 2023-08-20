@@ -6,7 +6,7 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
-
+use Illuminate\Database\Eloquent\SoftDeletes; 
 class OwnerSeeder extends Seeder
 {
     /**
@@ -33,7 +33,25 @@ class OwnerSeeder extends Seeder
                 'email' => 'test3@test1.com',
                 'password' => Hash::make('password123'),
                 'created_at' => '2023/01/01 12:34:56'
-                ]
+            ],
+            [
+                'name' => 'test4',
+                'email' => 'test4@test1.com',
+                'password' => Hash::make('password123'),
+                'created_at' => '2023/01/01 12:34:56'
+            ],
+            [
+                'name' => 'test5',
+                'email' => 'test5@test1.com',
+                'password' => Hash::make('password123'),
+                'created_at' => '2023/01/01 12:34:56'
+            ],
+            [
+                'name' => 'test6',
+                'email' => 'test6@test1.com',
+                'password' => Hash::make('password123'),
+                'created_at' => '2023/01/01 12:34:56'
+            ]
         ]);
     }
 }
