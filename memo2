@@ -19,6 +19,8 @@ middleware
     interventionImageでリサイズするなど可能
 フォームリクエスト
     画像用のリクエストを作成
+サービスへの切り離し
+    controller内はスマートにしておきたいので、コードの多いメソッドを別ファイルへ切り離す(service)
 
 注意点
     新規でcontroller作成する際は、routeにcotroller記載 → controller作成としないとだめ

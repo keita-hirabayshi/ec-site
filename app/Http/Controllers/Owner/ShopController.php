@@ -8,7 +8,8 @@ use App\Models\Shop;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use InterventionImage;
-use App\Http\Request\UploadImageRequest;
+use App\Http\Requests\UploadImageRequest;
+use App\Services\ImageService;
 
 class ShopController extends Controller
 {
@@ -49,14 +50,10 @@ class ShopController extends Controller
     public function update(UploadImageRequest $request){
         $imageFile = $request->image; //一時保存
         if(!is_null($imageFile) && $imageFile->isValid() ){
-//            Storage::putFile('public/shops', $imageFile);    リサイズなし
+        // アップロード処理はコードの多いので、別フォルダに分けて読み込んでいる
+        // 複数シーンで使用する場合は別ファイルに分けると、すっきりする(staticで記載すると、 :: だけで読み込める)
+            $fileNameToStore = ImageService::upload($imageFile, 'shops');
 
-            $fileName = uniqid(rand().'_');         //ファイル名作成
-            $extension = $imageFile->extension();   //拡張子の取得
-            $fileNameToStore = $fileName. '.' . $extension; //画像データ
-            $resizedImage = InterventionImage::make($imageFile)->resize(1920, 1080)->encode(); //リサイズ
-            // dd($imageFile,$resizedImage);
-            Storage::put('public/shops/' . $fileNameToStore,$resizedImage );
         }
 
         return redirect()->route('owner.shops.index');
