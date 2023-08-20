@@ -14,7 +14,7 @@ class ShopController extends Controller
         $this->middleware('auth:owners');
 
     // リクエストがあったshop->ownerとログイン時のowner情報が一致した場合のみ、店舗情報を公開する
-    
+
         $this->middleware(function($request, $next){
             $id = $request->route()->parameter('shop'); //shopのid取得
             if(!is_null($id)){ // null判定
@@ -30,8 +30,8 @@ class ShopController extends Controller
     }
 
     public function index(){
-        $ownerId = Auth::id();
-        $shops = Shop::where('owner_id', $ownerId)->get();
+        // $ownerId = Auth::id();
+        $shops = Shop::where('owner_id', Auth::id())->get();
 
         return view('owner.shops.index',
         compact('shops'));
