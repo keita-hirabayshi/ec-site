@@ -22,9 +22,10 @@ class ImageController extends Controller
             if(!is_null($id)){ // null判定
                 $imageOwnerId = Image::findOrFail($id)->owner->id;
                 $imageId = (int)$imageOwnerId; // キャスト 文字列→数値に型変換
-                if($ImageId !== Auth::id()){ // 同じでなかったら
+                if($imageId !==  Auth::id()){ // 同じでなかったら
                   abort(404); // 404画面表示
                 }
+
             }
             // dd($request->route()->parameter('image'));
             return $next($request);
@@ -76,20 +77,11 @@ class ImageController extends Controller
         'status' => 'info']);
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-    }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
     public function edit(string $id)
     {
-        //
+        $image = Image::findOrFail($id);
+        return view('owner.images.edit',compact('image'));
     }
 
     /**
@@ -97,7 +89,20 @@ class ImageController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        
+        $request->validate([
+            'title' => [ 'string', 'max:250']
+        ]);
+
+        $image = Image::findOrFail($id);
+        $image->title = $request->title;
+
+        $image->save();
+
+        return redirect()
+        ->route('owner.images.index')
+        ->with(['message' => '画像情報を更新しました。',
+        'status' => 'info']);
     }
 
     /**
