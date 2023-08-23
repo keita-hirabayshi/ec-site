@@ -12,5 +12,5 @@ sample1.jpg ~ sample6.jpgとして
 sail artisan storage:linkで
 storageフォルダにリンク後、
 storage/app/public/productsフォルダ内に
-保村すると表示されます。
+保存すると表示されます。
 (productsフォルダがない場合は作成してください。)
