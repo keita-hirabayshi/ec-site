@@ -7,20 +7,39 @@
     外部キーがある場合には、migrationファイルで設定しておくことで、設定できる
     また、modelファイルでは、リレーションを設定する必要がある  →  これを使う事で、外部キーで紐づくデータを取得できる
 
-オーナー削除
-    FK制約がかかっている場合には、migrationファイルにて「on update delete」を記載する必要がある
+    オーナー削除
+        FK制約がかかっている場合には、migrationファイルにて「on update delete」を記載する必要がある
 
-middleware
-    オーナーが別の店舗情報を見れないように、constructで設定してあげる
+    middleware
+        オーナーが別の店舗情報を見れないように、constructで設定してあげる
 
-エラー処理
-    カスタマイズしたいなら、vendor:publish  にて、vendor/publish内にファイル生成し、そこで編集する「tailwindのpaginationと同様」
-画像のアップロード
-    interventionImageでリサイズするなど可能
-フォームリクエスト
-    画像用のリクエストを作成
-サービスへの切り離し
-    controller内はスマートにしておきたいので、コードの多いメソッドを別ファイルへ切り離す(service)
+    エラー処理
+        カスタマイズしたいなら、vendor:publish  にて、vendor/publish内にファイル生成し、そこで編集する「tailwindのpaginationと同様」
+    画像のアップロード
+        interventionImageでリサイズするなど可能
+    フォームリクエスト
+        画像用のリクエストを作成
+    サービスへの切り離し
+        controller内はスマートにしておきたいので、コードの多いメソッドを別ファイルへ切り離す(service)
+
+画像登録
+    順序的には「商品」からだが、まず画像から登録を行なっていく
+
+    アップロード
+        複数登録する場合は、formにて[]配列 指定したり、storeメソッドにて foreach 対応する必要がある
+    edit
+        タイトルのみ編集できるようにしておく
+
+カテゴリー
+    primary,secondaryを設定(モデルの作成、リレーション、マイグレーション)
+
+product
+    shop,category,imageと複数の外部キーがあるので、cascade,nullの有無などを明記する必要がある
+    リレーションの設定は各々しなくていもいいかも
+
+eager loading(witchメソッド)
+    外部キーの関係が複雑な場合は、データ取得の際のSQL処理にも時間を要する
+    withメソッドを使えば、1回のsqlで取得可能に      with(FK1,FK2,リレーションメソッド)
 
 注意点
     新規でcontroller作成する際は、routeにcotroller記載 → controller作成としないとだめ
