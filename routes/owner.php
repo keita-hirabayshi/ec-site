@@ -15,6 +15,7 @@ use App\Http\Controllers\Owner\Auth\RegisteredUserController;
 use App\Http\Controllers\Owner\Auth\VerifyEmailController;
 use App\Http\Controllers\Owner\ShopController;
 use App\Http\Controllers\Owner\ImageController;
+use App\Http\Controllers\Owner\ProductController;
 
 /*
 |--------------------------------------------------------------------------
@@ -39,6 +40,9 @@ Route::prefix('shops')
 });
 
 Route::resource('images', ImageController::class)
+->middleware('auth:owners')->except(['show']);
+
+Route::resource('product', ProductController::class)
 ->middleware('auth:owners')->except(['show']);
  
 Route::get('/dashboard', function () {

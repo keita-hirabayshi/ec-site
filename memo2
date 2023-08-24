@@ -33,6 +33,9 @@
 カテゴリー
     primary,secondaryを設定(モデルの作成、リレーション、マイグレーション)
 
+product
+    shop,category,imageと複数の外部キーがあるので、cascade,nullの有無などを明記する必要がある
+
 
 注意点
     新規でcontroller作成する際は、routeにcotroller記載 → controller作成としないとだめ
