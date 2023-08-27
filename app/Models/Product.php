@@ -14,6 +14,20 @@ class Product extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'name',
+        'information',	
+        'price',
+        'is_selling',
+        'sort_order',
+        'shop_id',
+        'secondary_category_id',
+        'image1',
+        'image2',	
+        'image3',	
+        'image4',
+    ];
+
     public function category(){
     // メソッド名とFK名が異なる場合には、第二引数に対象となるカラム名を記載する
     // secondary_categoryだと省略可能

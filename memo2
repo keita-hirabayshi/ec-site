@@ -43,7 +43,9 @@ eager loading(withメソッド)
     withメソッドを使えば、1回のsqlで取得可能に      with(FK1,FK2,リレーションメソッド)
 
 ポップアイコン(Micromodal)
+    「micromodal」ホームページにて参照
 
-
+product
+    FK以外の要素の入力フォームの作成、storeチェック
 注意点
     新規でcontroller作成する際は、routeにcotroller記載 → controller作成としないとだめ
