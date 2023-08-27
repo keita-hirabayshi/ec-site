@@ -37,9 +37,13 @@ product
     shop,category,imageと複数の外部キーがあるので、cascade,nullの有無などを明記する必要がある
     リレーションの設定は各々しなくていもいいかも
 
-eager loading(witchメソッド)
+eager loading(withメソッド)
+    SQL処理の簡略化が可能
     外部キーの関係が複雑な場合は、データ取得の際のSQL処理にも時間を要する
     withメソッドを使えば、1回のsqlで取得可能に      with(FK1,FK2,リレーションメソッド)
+
+ポップアイコン(Micromodal)
+
 
 注意点
     新規でcontroller作成する際は、routeにcotroller記載 → controller作成としないとだめ
