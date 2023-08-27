@@ -7,11 +7,26 @@ use Illuminate\Database\Eloquent\Model;
 use App\Models\Shop;
 use App\Models\SecondaryCategory;
 use App\Models\Image1;
+use App\Models\Stock;
 
 
 class Product extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'name',
+        'information',	
+        'price',
+        'is_selling',
+        'sort_order',
+        'shop_id',
+        'secondary_category_id',
+        'image1',
+        'image2',	
+        'image3',	
+        'image4',
+    ];
 
     public function category(){
     // メソッド名とFK名が異なる場合には、第二引数に対象となるカラム名を記載する
@@ -27,4 +42,8 @@ class Product extends Model
     public function shop(){
         return $this->belongsTo(Shop::class);
     }
+    public function stock(){
+        return $this->hasMany(Stock::class);
+    }
+
 }
