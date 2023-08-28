@@ -130,20 +130,25 @@ class ProductController extends Controller
         'status' => 'info']);
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
     public function edit(string $id)
     {
-        //
+        $product = Product::findOrFail($id);
+
+        $quantity = Stock::where('product_id', $product->id)->sum('quantity');
+
+        $shops = Shop::where('owner_id',Auth::id())
+        ->select('id','name','is_selling')
+        ->get();
+
+        $images = Image::where('owner_id',Auth::id())
+        ->select('id','title','filename')
+        ->orderBy('updated_at','desc')
+        ->get();
+
+        $categories = PrimaryCategory::with('secondary')
+        ->get();
+        // dd($shops);
+        return view('owner.products.edit',compact('product','quantity','shops','images','categories'));
     }
 
     /**
