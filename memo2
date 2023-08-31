@@ -47,5 +47,14 @@ eager loading(withメソッド)
 
 product
     FK以外の要素の入力フォームの作成、storeチェック
+    edit,update画面の作成
+
+    destroy
+        テーブルデータ削除にあたり、FKが設定されている場合には 宛先テーブルにて cascade設定されているか確認する必要がある
+
+定数の設定
+    APPフォルダ内に設定し、configフォルダに登録。これにより呼び出す時に、\Constant のみで呼び出せる
+
 注意点
     新規でcontroller作成する際は、routeにcotroller記載 → controller作成としないとだめ
+    productについては、ソフトデリート画面を作っても良い
