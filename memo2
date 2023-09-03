@@ -55,7 +55,10 @@ product作成
     データの取得
         SQLにて、販売中のものを取得。ここにstockテーブルデータをjoint
         select句にてjoinで結合したテーブル中で重複しているカラムデータを別名に置き換える
-        ('products.id as id', 'products.name as name'
+        ('products.id as id', 'products.name as name')
+
+    スライドショー(swiper)
+        
 
 定数の設定(どんな値か見える化できる)
     APPフォルダ内に設定し、configフォルダに登録。これにより呼び出す時に、\Constant のみで呼び出せる
