@@ -1,6 +1,5 @@
-/* 元々のCSSには「import」はない機能だが、「package.json」に記載のpostcssによりこのファイルからimposerできるようになっている */
-/* tailwindをインストール時に一緒に読み込まれている */
 @import 'micromodal' ;
+@import 'swiper' ;
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

@@ -45,16 +45,28 @@ eager loading(withメソッド)
 ポップアイコン(Micromodal)
     「micromodal」ホームページにて参照
 
-product
+product作成
     FK以外の要素の入力フォームの作成、storeチェック
     edit,update画面の作成
 
     destroy
         テーブルデータ削除にあたり、FKが設定されている場合には 宛先テーブルにて cascade設定されているか確認する必要がある
 
-定数の設定
+    データの取得
+        SQLにて、販売中のものを取得。ここにstockテーブルデータをjoint
+        select句にてjoinで結合したテーブル中で重複しているカラムデータを別名に置き換える
+        ('products.id as id', 'products.name as name')
+
+    スライドショー(swiper)
+        version 6.2でインストールする必要あり(互換性の問題)
+
+定数の設定(どんな値か見える化できる)
     APPフォルダ内に設定し、configフォルダに登録。これにより呼び出す時に、\Constant のみで呼び出せる
+
+
+
 
 注意点
     新規でcontroller作成する際は、routeにcotroller記載 → controller作成としないとだめ
     productについては、ソフトデリート画面を作っても良い
+    ブランチ名の変更はgit branch -m で可能
