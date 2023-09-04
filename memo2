@@ -58,7 +58,7 @@ product作成
         ('products.id as id', 'products.name as name')
 
     スライドショー(swiper)
-        
+        version 6.2でインストールする必要あり(互換性の問題)
 
 定数の設定(どんな値か見える化できる)
     APPフォルダ内に設定し、configフォルダに登録。これにより呼び出す時に、\Constant のみで呼び出せる
