@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use App\Models\Product;
 
 class User extends Authenticatable
 {
@@ -42,4 +43,14 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    public function products(){
+        return $this->belongsToMany(Product::class, 'carts')
+        ->withPivot(['id', 'quantity']);
+        // 第2引数で中間テーブル名
+        // withpivotで中間テーブルのカラム取得 id,quantity
+        // デフォルトでは関連付けるカラム(user_idと
+        // product_id)のみ取得
+    }
+    
 }
