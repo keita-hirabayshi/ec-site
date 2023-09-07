@@ -68,7 +68,10 @@ Cartの設定
     テーブルを作成し、リレーションも設定
     入力処理
 
+STRIPE(決済処理方法)
+    .envファイルに追記
 
+    git.ignoreに記載のファイルはアップロードされない
 
 注意点
     新規でcontroller作成する際は、routeにcotroller記載 → controller作成としないとだめ
