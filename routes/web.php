@@ -33,6 +33,7 @@ Route::prefix('carts')
     Route::post('add', [CartController::class,'add'])->name('cart.add');
     Route::post('delete/{item}', [CartController::class,'delete'])->name('cart.delete');
     Route::get('checkout',[CartController::class,'checkout'])->name('cart.checkout');
+    Route::get('scuccess',[CartController::class,'success'])->name('cart.success');
 });
 
 // Route::get('/dashboard', function () {
