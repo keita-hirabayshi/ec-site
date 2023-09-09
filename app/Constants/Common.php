@@ -6,10 +6,14 @@ class Common
 {
     const PRODUCT_ADD = '1';
     const PRODUCT_REDUCE = '2';
+    const PRODUCT_PURCHASE = '3';
+    const PRODUCT_CANCEL = '4';
 
     const PRODUCT_LIST = [
         'add' => self::PRODUCT_ADD,
-        'reduce' => self::PRODUCT_REDUCE
+        'reduce' => self::PRODUCT_REDUCE,
+        'purchase' => self::PRODUCT_PURCHASE,
+        'cancel' => self::PRODUCT_CANCEL,
     ];
 }
 
