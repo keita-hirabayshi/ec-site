@@ -40,7 +40,6 @@ php artisan migrate:fresh --seed
 
 php artisan serve で簡易サーバーを立ち上げ、表示確認してください。
 
-
 ## インストール後の実施事項
 
 画像のダミーデータは
