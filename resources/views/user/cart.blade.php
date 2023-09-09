@@ -22,7 +22,7 @@
                                 <div class="md:w-4/12 md:ml-2">{{ $product->name }}</div>
                                 <div class="md:w-3/12 flex justify-around">
                                     <div>{{ $product->pivot->quantity }}</div>
-                                    <div>{{ number_format($product->pivot->quantity * $product->price )}}}<span class="text-sm text-gray-700">円(税込)</span></div> 
+                                    <div>{{ number_format($product->pivot->quantity * $product->price )}}<span class="text-sm text-gray-700">円(税込)</span></div> 
                                 </div>
                                 <div class="md:w-2/12">
                                     <form method="post" action="{{route('user.cart.delete',['item' => $product->id ])}}">

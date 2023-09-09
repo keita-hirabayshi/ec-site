@@ -72,6 +72,7 @@ STRIPE(決済処理方法)
     .envファイルに追記
 
     git.ignoreに記載のファイルはアップロードされない
+    決済処理 → 在庫を確認し決済前に在庫を減らす
 
 注意点
     新規でcontroller作成する際は、routeにcotroller記載 → controller作成としないとだめ
