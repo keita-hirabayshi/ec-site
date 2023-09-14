@@ -75,7 +75,10 @@ STRIPE(決済処理方法)
     決済処理 → 在庫を確認し決済前に在庫を減らす
 
 ローカルスコープ
-    共通で使用可能なクエリ制約を作成できる
+    共通で使用可能なクエリ制約を作成できる(shop,productのis_sellingがtrueで、在庫が1以上のものなど)
+
+表示順
+
 
 注意点
     新規でcontroller作成する際は、routeにcotroller記載 → controller作成としないとだめ
