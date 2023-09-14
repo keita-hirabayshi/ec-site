@@ -78,8 +78,8 @@ STRIPE(決済処理方法)
     共通で使用可能なクエリ制約を作成できる(shop,productのis_sellingがtrueで、在庫が1以上のものなど)
 
 表示順
-
-
+    script にて記載
+    表示順と表示件数の順番設定のちに、両者を適用させたい場合は pagination->link にてappendix 設定をする必要がある
 注意点
     新規でcontroller作成する際は、routeにcotroller記載 → controller作成としないとだめ
     productについては、ソフトデリート画面を作っても良い
