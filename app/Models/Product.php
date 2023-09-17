@@ -105,4 +105,12 @@ class Product extends Model
             }
     }
 
+    public function scopeSelectCategory($query,$categoryId){
+        if($categoryId !== '0'){
+            return $query->where('secondary_category_id',$categoryId);
+        }else{
+            return;
+        }
+    }
+
 }

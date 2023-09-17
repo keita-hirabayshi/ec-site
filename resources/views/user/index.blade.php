@@ -1,15 +1,33 @@
 <x-app-layout>
     <x-slot name="header">
-        <div class="flex justify-between items-center">
-            <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
-                商品一覧
-            </h2>
-            <div>
-                <form action="{{ route('user.items.index') }}" method="get">
+        <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
+            商品一覧
+        </h2>
+            <form action="{{ route('user.items.index') }}" method="get">
+                <div class=="lg:flex lg:justify-around">
+                    <div class="lg:flex items-center">
+                        <select name="category" class="mb-2 lg:mb-0 lg:mr-2" id="">
+                            <option value="0" @if(\Request::get('category') ==='0' ) selected @endif >全て</option>
+                            @foreach($categories as $category)
+                            <!-- プライマリーカテゴリーを表示 -->
+                            <optgroup label="{{ $category->name }}">
+                            <!-- セカンダリーカテゴリーを表示   sodoncaryメソッドにより取得-->
+                                @foreach($category->secondary as $secondary)
+                                <option value="{{ $secondary->id}}" @if(\Request::get('category') == $secondary->id) selected @endif >
+                                {{ $secondary->name }}
+                                </option>
+                                @endforeach
+                            @endforeach
+                        </select>
+                        <div class="flex space-x-2 items-center">
+                            <div><input name="keyword" class="border border-gray-500 py-2" placeholder="キーワードを入力"></div>
+                            <div><button class = "text-white bg-indigo-500 border-0 py-2 px-2 focus:outline-none hover:bg-indigo-600 rounded">検索する</button></div>
+                        </div>
+                    </div>
                     <div class="flex">
                         <div>
                             <span class="text-sm">表示順</span><br>
-                            <select name="sort"  class="mr-4" id="sort">
+                            <select name="sort" name="keyword" class="mr-4" id="sort">
                                 <option value="{{ \Constant::SORT_ORDER['recommend']}}"
                                     @if(\Request::get('sort') === \Constant::SORT_ORDER['recommend'] )
                                     selected
@@ -58,9 +76,8 @@
                             </select>
                         </div>
                     </div>
-                </form>
-            </div>
-        </div>
+                </div>
+            </form>
     </x-slot>
 
     <div class="py-12">
