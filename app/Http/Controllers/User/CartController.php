@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use App\Models\Cart;
 use App\Models\Stock;
+use App\Services\CartService;
 
 class CartController extends Controller
 {
@@ -15,9 +16,9 @@ class CartController extends Controller
         $user = User::findOrFail(Auth::id());
         $products = $user->products;
         $totalPrice = 0;
-
         foreach($products as $product){
-            $totalPrice = $product->price * $product->pivot->quantity;
+            $totalPrice += $product->price * $product->pivot->quantity;
+            // dd($product->pivot->quantity);
         }
 
         // dd($products,$totalPrice);
@@ -51,6 +52,11 @@ class CartController extends Controller
     }
     
     public function checkout(){
+    // 
+    $items = Cart::where('user_id',Auth::id())->get();
+    $products = CartService::getItemsInCart($items);
+        
+    // 
         $user = User::findOrFail(Auth::id());
         $products = $user->products;
         $stripe = new \Stripe\StripeClient(env('STRIPE_SECRET_KEY'));
