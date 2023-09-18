@@ -87,3 +87,8 @@ STRIPE(決済処理方法)
 
 .envファイルを変更した時に行う事
     sail artisan config:cache
+
+非同期処理
+    フロント側ではなく、バック側で処理を実行したい時に使う。
+    処理内容を専用テーブルに保存(キュー・ジョブ)し、workで処理を行う
+    *前提として、workerが起動している必要がある(sail artisan queue:work)
