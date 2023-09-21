@@ -9,6 +9,8 @@ use App\Models\User;
 use App\Models\Cart;
 use App\Models\Stock;
 use App\Services\CartService;
+use App\Jobs\SendThanksMail;
+use App\Jobs\SendOrderedMail;
 
 class CartController extends Controller
 {
@@ -52,14 +54,10 @@ class CartController extends Controller
     }
     
     public function checkout(){
-    // 
-    $items = Cart::where('user_id',Auth::id())->get();
-    $products = CartService::getItemsInCart($items);
         
-    // 
-        $user = User::findOrFail(Auth::id());
-        $products = $user->products;
-        $stripe = new \Stripe\StripeClient(env('STRIPE_SECRET_KEY'));
+    $user = User::findOrFail(Auth::id());
+    $products = $user->products;
+    $stripe = new \Stripe\StripeClient(env('STRIPE_SECRET_KEY'));
 
     // ユーザーに紐づく商品を全取得
     // 購入点数と在庫数を比較
@@ -111,6 +109,17 @@ class CartController extends Controller
     }
     
     public function success(){
+    //  注文確認のメールとカート内のものを削除
+        $items = Cart::where('user_id',Auth::id())->get();
+        $products = CartService::getItemsInCart($items);
+        $user = User::findOrFail(Auth::id());
+        
+        SendThanksMail::dispatch($products,$user);
+        foreach ($products as $product) {
+            SendOrderedMail::dispatch($product,$user);
+
+        }
+        // 
         Cart::where('user_id',Auth::id())->delete();
         
         return redirect()->route('user.items.index');
